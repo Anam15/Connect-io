@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import MyButton from '../../util/MyButton';
 import PostPost from '../post/PostPost';
 import Notifications from './Notifications';
-//import Main_Func from '../../pages/Main_Func.js';
+//import Resources from './Resources';
+import './Navbar.css'
+//import Main_Func from './Main_Func.js';
 // Material UI
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,28 +16,60 @@ import Button from '@material-ui/core/Button';
 // Icons
 import HomeIcon from '@material-ui/icons/Home';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+//import HeaderOption from './HeaderOption';
+import SearchIcon from '@material-ui/icons/Search';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import ChatIcon from '@material-ui/icons/Chat';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 
 class Navbar extends Component {
   render() {
     const { authenticated } = this.props;
     return (
       <AppBar>
-        <Toolbar className="nav-container">
+        <Toolbar>
           {authenticated ? (
             <Fragment>
-              <PostPost />
+              <div className ="header">
+            <div className = "header__left">
+                <img src= "https://img-premium.flaticon.com/png/512/3089/3089758.png?token=exp=1621165299~hmac=f0915c0952cd929e8da60d22e41a6c27" alt = "" />
+
+                <div className = "header__search">
+                  <SearchIcon />
+                  <input className = "input" type = "text"/>
+                </div>
+            </div>
+            <div className = "header__right">
+              <PostPost /> 
               <Link to="/">
                 <MyButton tip="Home">
                   <HomeIcon />
                 </MyButton>
               </Link>
+              <Link to="/">
+                <MyButton tip="My Network">
+                  <SupervisorAccountIcon />
+                </MyButton>
+              </Link>
               <Notifications />
-              <Link to="/pages/Main_Func.js">
+              <Link to="/">
+                <MyButton tip="Messages">
+                  <ChatIcon/>
+                </MyButton>
+              </Link>            
+              <Link to="/">
                 <MyButton tip="Jobs">
                   <BusinessCenterIcon />
                 </MyButton>
               </Link>
-
+              <Link to="/">
+                <MyButton tip="Resources">
+                  <ListAltIcon/>
+                </MyButton>
+              </Link>
+              
+            </div>
+            </div>          
             </Fragment>
           ) : (
             <Fragment>

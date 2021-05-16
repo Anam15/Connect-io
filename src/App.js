@@ -22,7 +22,7 @@ import user from './pages/user';
 // import landing from "./pages/landing"
 
 import axios from 'axios';
-import Main_Func from './pages/Main_Func';
+//import Main_Func from './pages/Main_Func';
 
 const theme = createMuiTheme(themeObject);
 
@@ -53,7 +53,6 @@ class App extends Component {
               <Switch>
                {/*  <Route exact path="/landing" component={landing} /> */}
                 <Route exact path="/" component={home} />
-                <Route exact path="/Main_Func" component={Main_Func} /> 
                 <AuthRoute exact path="/login" component={login} />
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/users/:handle" component={user} />
